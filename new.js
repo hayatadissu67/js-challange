@@ -136,4 +136,88 @@ const fullWeek = [{ day: "Saturday", temp: 24 }];
 const full =[...week, fullWeek];
 
 console.log(`Days recorded after adding Saturday: ${full.length}`);
+//----------------------------------------------------
+ console.log("    ");
+ console.log("end of question three ");
+ console.log("    ");
+ console.log("    ");
 
+// qustion four
+
+const todos = [
+  { task: "wash dishes", done: true, priority: "low" },
+  { task: "do homework", done: false, priority: "high" },
+  { task: "call mom", done: true, priority: "high" },
+  { task: "buy groceries", done: false, priority: "low" },
+  { task: "study javascript", done: false, priority: "high" },
+];
+
+function statusIcon(done){
+    if (done === true){
+        return "[x]";
+    } else {
+        return "[ ]";
+    }
+}
+
+const formatTodo = ({task, done, priority}) => {
+    return `${statusIcon(done)} ${task.toUpperCase()} (${priority})`
+}
+
+const formattedTo = todos.map(formatTodo);
+
+for (const todos of formattedTo ) {
+    console.log(todos)
+}
+
+const notDone = todos.filter((todos) => todos.done === false )
+console.log(`Tasks remaining: ${notDone.length}`);
+
+const totalHiTasks = todos.reduce((sum, todos) => sum + ( todos.priority === "high" ? 1: 0), 0);
+let totalHighPPriority = totalHiTasks;
+console.log(`High priority tasks: ${totalHighPPriority}`);
+
+const newTask = [{ task: "sleep early", done: false, priority: "low" }];
+const afterAdding = [...todos, newTask]
+console.log(`Total tasks after adding one more: ${afterAdding.length}`);
+
+//--------------------------------------------------------------
+ console.log("    ");
+ console.log("end of question three ");
+ console.log("    ");
+ console.log("    ");
+
+// question five
+
+const movies = [
+  {
+    title: "inception",
+    rating: 9,
+    minutes: 148,
+  },
+  {
+    title: "cars",
+    rating: 7,
+    minutes: 117,
+  },
+  {
+    title: "titanic",
+    rating: 8,
+    minutes: 195,
+  },
+  {
+    title: "shrek",
+    rating: 6,
+    minutes: 90,
+  },
+];
+
+function verdict(rating) {
+    if (rating >= 8) {
+      return "must watch";
+    } else if (rating >= 7) {
+      return "good";
+    } else {
+      return "skip";
+    }
+}
