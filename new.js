@@ -183,7 +183,7 @@ console.log(`Total tasks after adding one more: ${afterAdding.length}`);
 
 //--------------------------------------------------------------
  console.log("    ");
- console.log("end of question three ");
+ console.log("end of question four ");
  console.log("    ");
  console.log("    ");
 
@@ -221,3 +221,75 @@ function verdict(rating) {
       return "skip";
     }
 }
+
+const formatMovie = ({title, rating}) => {
+    return `${title.toUpperCase()} -${rating}/10 - ${verdict(rating)} `
+}
+
+const formatedMovie = movies.map(formatMovie);
+for(const movies of formatedMovie) {
+    console.log(movies)
+}
+
+const shortMovies =  movies.filter((todos) => todos.minutes < 120 )
+console.log(`Short movies (under 120 min): ${shortMovies.length}`);
+
+const totalRunTime = movies.reduce((sum, movies) => sum + movies.minutes, 0);
+let totalRun = totalRunTime;
+console.log(`Total runtime: ${totalRun}`);
+
+const newMovie = [{ title: "coco", rating: 8, minutes: 105 }];
+
+const finalMovieList = [...movies, newMovie];
+console.log(`Watchlist size after adding Coco: ${finalMovieList.length}`);
+
+
+//---------------------------------------------------------
+console.log("    ");
+console.log("end of question four ");
+console.log("    ");
+console.log("    ");
+
+
+// question six
+
+const books = [
+  { title: "atomic habits", pages: 320, available: true },
+  { title: "clean code", pages: 464, available: false },
+  { title: "the alchemist", pages: 208, available: true },
+  { title: "deep work", pages: 304, available: false },
+];
+
+function availability(available) {
+    if (available === true) {
+      return "on shelf";
+    } else {
+      return "borrowed";
+    }
+}
+
+const formatBook = ({title, pages,available}) => {
+    return `${title.toUpperCase()} (${pages}pages-) ${availability(available)} `
+} 
+
+const formatedBook = books.map(formatBook);
+for(const books of formatedBook) 
+{
+    console.log(books)
+}
+ const availableBooks = books.filter((books) => books.available === true);
+ console.log(`Available books: ${availableBooks.length}`);
+
+ const totalPages = books.reduce((sum, books)=> sum + (books.available ? 0 :1), 0)
+ let totalPa = totalPages;
+ console.log(`Total pages in library: ${totalPa}`);
+
+ const hasCleanCode = formatedBook.some((books) =>
+   books.includes("CLEAN CODE"),
+ );
+ console.log(`Clean Code is in the catalog: ${hasCleanCode}`);
+
+ const newBook = [{ title: "1984", pages: 328, available: true }];
+
+ const newBookList = [...books, newBook];
+ console.log(`Catalog size after adding 1984: ${newBookList.length}`);
