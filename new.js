@@ -15,7 +15,7 @@ function getGrade(score) {
   } else {
     return "f";
   }
-} 
+}
 const formatStudent = ({ name, score }) => {
   return `${name.toUpperCase()} scored ${score} Grade -> ${getGrade(score)}`;
 };
@@ -30,11 +30,11 @@ const passed = students.filter((students) => students.score >= 60);
 
 console.log(`passed: ${passed.length} outof ${students.length}`);
 
-const total = students.reduce((sum, students) => sum + students.score, 0 );
+const total = students.reduce((sum, students) => sum + students.score, 0);
 
-let average = total/students.length;
+let average = total / students.length;
 
-console.log("class average:" + average)
+console.log("class average:" + average);
 
 const student = {
   name: "Marta",
@@ -42,40 +42,40 @@ const student = {
   subject: "Math",
 };
 
-const allStudents = [...students, student]
-console.log("New class size after adding marta:" + allStudents.length)
+const allStudents = [...students, student];
+console.log("New class size after adding marta:" + allStudents.length);
 
 //----------------------------------------------------------
-console.log("end of question one ")
-console.log("    ")
+console.log("end of question one ");
+console.log("    ");
 console.log("    ");
 
 // question two
 
 const cart = [
-    {name: "apple", price: 10, quantity: 3},
-    {name: "bread", price: 25, quantity: 1},
-    {name: "milk", price: 18, quantity: 2},
-    {name: "chocolate", price: 55, quantity: 1}
-]
+  { name: "apple", price: 10, quantity: 3 },
+  { name: "bread", price: 25, quantity: 1 },
+  { name: "milk", price: 18, quantity: 2 },
+  { name: "chocolate", price: 55, quantity: 1 },
+];
 
 function itemTotal(item) {
-    return item.price * item.quantity;
+  return item.price * item.quantity;
 }
 
-const formatItem = ({name, price, quantity}) => {
-    return `${name.toUpperCase()} x${quantity} = ${itemTotal({price, quantity})} birr`
-}
-const formattedItem = cart.map(formatItem)
+const formatItem = ({ name, price, quantity }) => {
+  return `${name.toUpperCase()} x${quantity} = ${itemTotal({ price, quantity })} birr`;
+};
+const formattedItem = cart.map(formatItem);
 
 for (const item of formattedItem) {
-    console.log(item)
+  console.log(item);
 }
 
 const expense = cart.filter((cart) => cart.price >= 20);
-console.log(`Expensive items (over 20 birr): ${expense.length}`)
+console.log(`Expensive items (over 20 birr): ${expense.length}`);
 
-const totali = cart.reduce((sum, cart ) => sum + cart.price * cart.quantity, 0 )
+const totali = cart.reduce((sum, cart) => sum + cart.price * cart.quantity, 0);
 let grandTotal = totali;
 console.log(`Grand total: ${grandTotal} birr`);
 
@@ -85,16 +85,14 @@ if (totali > 100) {
   console.log("Add more items for free delivery.");
 }
 
-const newItem = [
-   { name: "water", price: 8, quantity: 6}
-]
+const newItem = [{ name: "water", price: 8, quantity: 6 }];
 
-const afterAddition = [...cart, newItem]
+const afterAddition = [...cart, newItem];
 console.log(`Cart now has ${afterAddition.length} items`);
 
- console.log("    ");
-console.log("end of question two ")
-console.log("    ")
+console.log("    ");
+console.log("end of question two ");
+console.log("    ");
 console.log("    ");
 
 // question three
@@ -107,40 +105,41 @@ const week = [
   { day: "Friday", temp: 26 },
 ];
 
-function describe(temp){
-    if (temp >= 30){
-        return "hot"
-    } else if (temp >= 25 ){
-        return "warm"
-    } else{
-        return "cool"
-    }
+function describe(temp) {
+  if (temp >= 30) {
+    return "hot";
+  } else if (temp >= 25) {
+    return "warm";
+  } else {
+    return "cool";
+  }
 }
 
-const formatDay = ({ day, temp }) => `${day.toUpperCase()}: ${temp}°C ( ${describe(temp)})`;
+const formatDay = ({ day, temp }) =>
+  `${day.toUpperCase()}: ${temp}°C ( ${describe(temp)})`;
 
-const formattedDay = week.map(formatDay)
+const formattedDay = week.map(formatDay);
 for (const week of formattedDay) {
-    console.log(week);
+  console.log(week);
 }
 
-const warmer = week.filter((week) => week.temp >= 25)
+const warmer = week.filter((week) => week.temp >= 25);
 console.log(`Warm or hot days: ${warmer.length}`);
 
-const totalTemp = week.reduce ((sum, week) => sum + week.temp, 0);
+const totalTemp = week.reduce((sum, week) => sum + week.temp, 0);
 let totalTemprature = totalTemp;
 console.log(`Average temperature: ${totalTemprature}°C`);
 
 const fullWeek = [{ day: "Saturday", temp: 24 }];
 
-const full =[...week, fullWeek];
+const full = [...week, fullWeek];
 
 console.log(`Days recorded after adding Saturday: ${full.length}`);
 //----------------------------------------------------
- console.log("    ");
- console.log("end of question three ");
- console.log("    ");
- console.log("    ");
+console.log("    ");
+console.log("end of question three ");
+console.log("    ");
+console.log("    ");
 
 // qustion four
 
@@ -152,40 +151,43 @@ const todos = [
   { task: "study javascript", done: false, priority: "high" },
 ];
 
-function statusIcon(done){
-    if (done === true){
-        return "[x]";
-    } else {
-        return "[ ]";
-    }
+function statusIcon(done) {
+  if (done === true) {
+    return "[x]";
+  } else {
+    return "[ ]";
+  }
 }
 
-const formatTodo = ({task, done, priority}) => {
-    return `${statusIcon(done)} ${task.toUpperCase()} (${priority})`
-}
+const formatTodo = ({ task, done, priority }) => {
+  return `${statusIcon(done)} ${task.toUpperCase()} (${priority})`;
+};
 
 const formattedTo = todos.map(formatTodo);
 
-for (const todos of formattedTo ) {
-    console.log(todos)
+for (const todos of formattedTo) {
+  console.log(todos);
 }
 
-const notDone = todos.filter((todos) => todos.done === false )
+const notDone = todos.filter((todos) => todos.done === false);
 console.log(`Tasks remaining: ${notDone.length}`);
 
-const totalHiTasks = todos.reduce((sum, todos) => sum + ( todos.priority === "high" ? 1: 0), 0);
+const totalHiTasks = todos.reduce(
+  (sum, todos) => sum + (todos.priority === "high" ? 1 : 0),
+  0,
+);
 let totalHighPPriority = totalHiTasks;
 console.log(`High priority tasks: ${totalHighPPriority}`);
 
 const newTask = [{ task: "sleep early", done: false, priority: "low" }];
-const afterAdding = [...todos, newTask]
+const afterAdding = [...todos, newTask];
 console.log(`Total tasks after adding one more: ${afterAdding.length}`);
 
 //--------------------------------------------------------------
- console.log("    ");
- console.log("end of question four ");
- console.log("    ");
- console.log("    ");
+console.log("    ");
+console.log("end of question four ");
+console.log("    ");
+console.log("    ");
 
 // question five
 
@@ -213,25 +215,25 @@ const movies = [
 ];
 
 function verdict(rating) {
-    if (rating >= 8) {
-      return "must watch";
-    } else if (rating >= 7) {
-      return "good";
-    } else {
-      return "skip";
-    }
+  if (rating >= 8) {
+    return "must watch";
+  } else if (rating >= 7) {
+    return "good";
+  } else {
+    return "skip";
+  }
 }
 
-const formatMovie = ({title, rating}) => {
-    return `${title.toUpperCase()} -${rating}/10 - ${verdict(rating)} `
-}
+const formatMovie = ({ title, rating }) => {
+  return `${title.toUpperCase()} -${rating}/10 - ${verdict(rating)} `;
+};
 
 const formatedMovie = movies.map(formatMovie);
-for(const movies of formatedMovie) {
-    console.log(movies)
+for (const movies of formatedMovie) {
+  console.log(movies);
 }
 
-const shortMovies =  movies.filter((todos) => todos.minutes < 120 )
+const shortMovies = movies.filter((todos) => todos.minutes < 120);
 console.log(`Short movies (under 120 min): ${shortMovies.length}`);
 
 const totalRunTime = movies.reduce((sum, movies) => sum + movies.minutes, 0);
@@ -243,13 +245,11 @@ const newMovie = [{ title: "coco", rating: 8, minutes: 105 }];
 const finalMovieList = [...movies, newMovie];
 console.log(`Watchlist size after adding Coco: ${finalMovieList.length}`);
 
-
 //---------------------------------------------------------
 console.log("    ");
-console.log("end of question four ");
+console.log("end of question five ");
 console.log("    ");
 console.log("    ");
-
 
 // question six
 
@@ -261,35 +261,78 @@ const books = [
 ];
 
 function availability(available) {
-    if (available === true) {
-      return "on shelf";
-    } else {
-      return "borrowed";
-    }
+  if (available === true) {
+    return "on shelf";
+  } else {
+    return "borrowed";
+  }
 }
 
-const formatBook = ({title, pages,available}) => {
-    return `${title.toUpperCase()} (${pages}pages-) ${availability(available)} `
-} 
+const formatBook = ({ title, pages, available }) => {
+  return `${title.toUpperCase()} (${pages}pages-) ${availability(available)} `;
+};
 
 const formatedBook = books.map(formatBook);
-for(const books of formatedBook) 
-{
-    console.log(books)
+for (const books of formatedBook) {
+  console.log(books);
 }
- const availableBooks = books.filter((books) => books.available === true);
- console.log(`Available books: ${availableBooks.length}`);
+const availableBooks = books.filter((books) => books.available === true);
+console.log(`Available books: ${availableBooks.length}`);
 
- const totalPages = books.reduce((sum, books)=> sum + (books.available ? 0 :1), 0)
- let totalPa = totalPages;
- console.log(`Total pages in library: ${totalPa}`);
+const totalPages = books.reduce(
+  (sum, books) => sum + (books.available ? 0 : 1),
+  0,
+);
+let totalPa = totalPages;
+console.log(`Total pages in library: ${totalPa}`);
 
- const hasCleanCode = formatedBook.some((books) =>
-   books.includes("CLEAN CODE"),
- );
- console.log(`Clean Code is in the catalog: ${hasCleanCode}`);
+const hasCleanCode = formatedBook.some((books) => books.includes("CLEAN CODE"));
+console.log(`Clean Code is in the catalog: ${hasCleanCode}`);
 
- const newBook = [{ title: "1984", pages: 328, available: true }];
+const newBook = [{ title: "1984", pages: 328, available: true }];
 
- const newBookList = [...books, newBook];
- console.log(`Catalog size after adding 1984: ${newBookList.length}`);
+const newBookList = [...books, newBook];
+console.log(`Catalog size after adding 1984: ${newBookList.length}`);
+
+//---------------------------------------------------------------
+console.log("    ");
+console.log("end of question six ");
+console.log("    ");
+console.log("    ");
+
+// qustion seven
+
+const playList = [
+  { title: "tizita", artist: "mulatu", seconds: 240 },
+  { title: "perfect", artist: "Ed sheeran", seconds: 263 },
+  { title: "blinding light", artist: "The weekend", seconds: 200 },
+  { title: "beliver", artist: "Imagine Dragon", seconds: 204 },
+];
+
+function lengthLabel(seconds) {
+  if (seconds >= 240) {
+    return "long";
+  } else {
+    return "short";
+  }
+}
+const formatSong = ({title, artist, seconds}) =>{
+  return `${title.toUpperCase()} by ${artist} (${seconds}s, long)`
+}
+const formattedMusic = playList.map(formatSong);
+for (const playList of formattedMusic) {
+  console.log(playList)
+}
+
+const shortSongs = playList.filter((playList)=> playList.seconds < 240)
+console.log(`Short songs: ${shortSongs.length}`);
+
+const totalSeconds = playList.reduce ((sum, playList) => sum + playList.seconds, 0)
+let totalSec = totalSeconds/60;
+let rounded = Math.round(totalSec)
+ console.log(`Total playlist length: ${rounded}`)
+
+ const newSong = [{ title: "halo", artist: "Beyonce", seconds: 261 }];
+
+ const afterUpdate = [...playList, newSong]
+ console.log(`Songs after adding Halo: ${afterUpdate.length}`);
