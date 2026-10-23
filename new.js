@@ -316,23 +316,172 @@ function lengthLabel(seconds) {
     return "short";
   }
 }
-const formatSong = ({title, artist, seconds}) =>{
-  return `${title.toUpperCase()} by ${artist} (${seconds}s, long)`
-}
+const formatSong = ({ title, artist, seconds }) => {
+  return `${title.toUpperCase()} by ${artist} (${seconds}s, long)`;
+};
 const formattedMusic = playList.map(formatSong);
 for (const playList of formattedMusic) {
-  console.log(playList)
+  console.log(playList);
 }
 
-const shortSongs = playList.filter((playList)=> playList.seconds < 240)
+const shortSongs = playList.filter((playList) => playList.seconds < 240);
 console.log(`Short songs: ${shortSongs.length}`);
 
-const totalSeconds = playList.reduce ((sum, playList) => sum + playList.seconds, 0)
-let totalSec = totalSeconds/60;
-let rounded = Math.round(totalSec)
- console.log(`Total playlist length: ${rounded}`)
+const totalSeconds = playList.reduce(
+  (sum, playList) => sum + playList.seconds,
+  0,
+);
+let totalSec = totalSeconds / 60;
+let rounded = Math.round(totalSec);
+console.log(`Total playlist length: ${rounded}`);
 
- const newSong = [{ title: "halo", artist: "Beyonce", seconds: 261 }];
+const newSong = [{ title: "halo", artist: "Beyonce", seconds: 261 }];
 
- const afterUpdate = [...playList, newSong]
- console.log(`Songs after adding Halo: ${afterUpdate.length}`);
+const afterUpdate = [...playList, newSong];
+console.log(`Songs after adding Halo: ${afterUpdate.length}`);
+
+//---------------------------------------------------------------
+console.log("    ");
+console.log("end of question seven ");
+console.log("    ");
+console.log("    ");
+
+// qustion eight
+
+const menu = [
+  { dish: "doro wat", price: 180, spicy: true },
+  { dish: "pasta", price: 120, spicy: false },
+  { dish: "kitfo", price: 200, spicy: true },
+  { dish: "salad", price: 90, spicy: false },
+];
+
+function spicyLabel(spicy) {
+  if (spicy === true) {
+    return "🌶 spicy";
+  } else {
+    return "mild";
+  }
+}
+
+const formatDish = ({ dish, price, spicy }) => {
+  return `${dish.toUpperCase()} - ${price} ${spicyLabel(spicy)}`;
+};
+const formattedDish = menu.map(formatDish);
+for (const menu of formattedDish) {
+  console.log(menu);
+}
+
+const spicyDishes = menu.filter((menu) => menu.spicy === true);
+console.log(`Spicy dishes: ${spicyDishes.length}`);
+
+const totalPrice = menu.reduce((sum, menu) => sum + menu.price, 0);
+let totalPr = totalPrice;
+console.log(`One of everything: ${totalPr}`);
+
+if (totalPr > 500) {
+  console.log("This is a feast!");
+} else {
+  console.log("A reasonable meal.");
+}
+
+const newDish = [{ dish: "tibs", price: 190, spicy: true }];
+
+const fullMenu = [...menu, newDish];
+console.log(`Menu now has ${fullMenu.length} dishes`);
+
+//---------------------------------------------------------------
+console.log("    ");
+console.log("end of question eight ");
+console.log("    ");
+console.log("    ");
+
+// qustion nine
+
+const log = [
+  { day: "mon", steps: 8200 },
+  { day: "tue", steps: 4500 },
+  { day: "wed", steps: 10100 },
+  { day: "thu", steps: 6200 },
+  { day: "fri", steps: 12000 },
+];
+
+function goalCheck(steps) {
+  if (steps >= 8000) {
+    return "goal met";
+  } else {
+    return "below goal";
+  }
+}
+
+const formatEntry = ({ day, steps }) => {
+  return ` ${day.toUpperCase()} : ${steps} steps (${goalCheck(steps)})`;
+};
+const formattedEntry = log.map(formatEntry);
+for (const log of formattedEntry) {
+  console.log(log);
+}
+
+const goalMet = log.filter((log) => log.steps >= 8000);
+console.log(`Goal met on  ${goalMet.length} days`);
+
+const totalSteps = log.reduce((sum, log) => sum + log.steps, 0);
+let totalSt = totalSteps / 5;
+console.log(`Daily average: ${totalSt}`);
+
+const newDay = [{ day: "sat", steps: 9500 }];
+
+const fullLog = [...log, newDay];
+console.log(`Logged days after Saturday: ${fullLog.length}`);
+
+//---------------------------------------------------------------
+console.log("    ");
+console.log("end of question nine ");
+console.log("    ");
+console.log("    ");
+
+// qustion ten
+const transactions = [
+  { label: "salary", amount: 5000, type: "deposit" },
+  { label: "rent", amount: -2000, type: "withdrawal" },
+  { label: "groceries", amount: -750, type: "withdrawal" },
+  { label: "freelance gig", amount: 1200, type: "deposit" },
+  { label: "internet bill", amount: -450, type: "withdrawal" },
+];
+
+function direction(amount) {
+  if (amount > 0) {
+    return "IN";
+  } else {
+    return "OUT";
+  }
+}
+
+const formatTx = ({ label, amount }) => {
+  return ` ${label.toUpperCase()} : ${amount} birr (${direction(amount)})`;
+};
+
+const formattedTx = transactions.map(formatTx);
+for (const transactions of formattedTx) {
+  console.log(transactions);
+}
+
+const deposit = transactions.filter(
+  (transactions) => transactions.type.includes("deposit"),
+);
+console.log(`Deposits:  ${deposit.length} `);
+
+const finalBal = transactions.reduce((sum, transactions) => sum + transactions.amount, 0)
+let finalBallance = finalBal;
+console.log(`Final balance: ${finalBallance}`)
+
+if (finalBallance > 0) {
+  console.log("Account is healthy.");
+} else {
+  console.log("Warning: overdrawn!");
+}
+
+const newTrans = [{ label: "coffee", amount: -80, type: "withdrawal" }];
+
+const fullTrans = [...transactions, newTrans]
+console.log(`Transactions after adding coffee: ${fullTrans.length}`);
+
