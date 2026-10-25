@@ -1,3 +1,5 @@
+console.log("Q1")
+
 const employees = [
   { name: "Abel", salary: 8000, dept: "eng" },
   { name: "sara", salary: 12000, dept: "sales" },

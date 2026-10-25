@@ -1,3 +1,7 @@
+// used them to separate the reult to make it readable
+console.log(" ");
+console.log("Q7");
+//----------------------------------------------
 const matches = [
   { player: "Abel", kills: 12, deaths: 4 },
   { player: "sara", kills: 20, deaths: 5 },

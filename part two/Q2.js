@@ -1,3 +1,8 @@
+
+// used them to separate the reult to make it readable
+console.log(" ")
+console.log("Q2")
+//----------------------------------------------
 const students = [
   { name: "abel", correct: 5, total: 5 },
   { name: "sara", correct: 3, total: 5 },
